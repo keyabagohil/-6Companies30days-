@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int minOperations(vector<int>& nums, vector<int>& numsDivide) {
+        int min=*min_element(numsDivide.begin(), numsDivide.end());
+        sort(nums.begin(),nums.end());
+        int n=numsDivide.size();
+        int i;
+        vector<int> v;
+        for(i=0;i<nums.size();i++){
+            int k=0;
+            if(i!=0 && nums[i]==nums[i-1]){
+                continue;
+            }
+            while(k!=n && numsDivide[k]%nums[i]==0){                
+                k++;
+            }
+            if(k==n){
+                return i;
+            }
+        }
+        return -1;
+
+    }
+};
