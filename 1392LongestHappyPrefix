@@ -1,0 +1,12 @@
+class Solution {
+public:
+    string longestPrefix(string s) {
+        long n=s.length();
+        for(long i=0;i<s.length()-1;i++){
+            if(s.substr(0,n-1-i)==s.substr(i+1,n)){
+                return s.substr(0,n-1-i);
+            }
+        }
+        return "";
+    }
+};
